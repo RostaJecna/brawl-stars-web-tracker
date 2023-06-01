@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Lilita One';
+    src: url('../fonts/lilita-one/lilita-one.woff') format('woff2'),
+        url('../fonts/lilita-one/lilita-one.woff2') format('woff');
+}
+
+@font-face {
+    font-family: 'Nougat';
+    src: url('../fonts/nougat/nougat.woff2') format('woff2'),
+        url('../fonts/nougat/nougat.woff') format('woff');
+}
+
+.font-lilita-one {
+    font-family: 'Lilita One', sans-serif;
+}
+
+.font-nougat {
+    font-family: 'Nougat', sans-serif;
+}
