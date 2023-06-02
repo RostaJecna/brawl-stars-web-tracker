@@ -5,15 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="/assets/css/fonts.css">
+    <link rel="stylesheet" href="/assets/css/backgrounds.css">
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="vendor/bootstrap/extensions/my-extension.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brawl Tracker</title>
 </head>
 
 <body class="font-lilita-one">
-    <header class="bg-dark" data-bs-theme="dark">
-        <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+    <header class="bg-dark user-select-none" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg shadow-lg">
             <div class="container">
                 <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
                     <img class="bi" width="32" height="32" src="/assets/images/logo.svg">
@@ -30,15 +32,15 @@
                                 href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/pages/brawlers.html">Brawlers</a>
+                            <a class="nav-link" href="/">Brawlers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/pages/about-web.html">About Web</a>
+                            <a class="nav-link" href="/">About Web</a>
                         </li>
                     </ul>
                     <div class="d-flex">
                         <a href="#"
-                            class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover me-3 navbar-text">Login
+                            class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover me-3 my-auto">Login
                         </a>
                         <a class="btn btn-outline-warning action-button" role="button" href="#">Sign Up</a>
                     </div>
@@ -46,6 +48,43 @@
             </div>
         </nav>
     </header>
+    <main>
+        <section class="text-bg-dark py-5 shadow-lg" data-bs-theme="dark">
+            <div class="container">
+                <div class="row px-4">
+                    <div class="col-md-5">
+                        <h1 class="font-nougat">
+                            Track. Analyze. Improve.
+                        </h1>
+                        <p class="fs-5 text-secondary">
+                            We give you the ability to track your progress, gain valuable insights and improve your
+                            skills.
+                        </p>
+                        <div class="mb-3 user-select-none">
+                            <label for="basic-url" class="form-label">Try It Out</label>
+                            <div class="input-group">
+                                <span class="input-group-text text-bg-warning" id="basic-addon3">#</span>
+                                <input type="text"
+                                    class="form-control focus-ring focus-ring-warning focus-border-warning"
+                                    placeholder="Player Tag" aria-label="Player Tag" aria-describedby="basic-addon1">
+                                <button class="btn btn-outline-warning" type="button" id="button-addon2">Get</button>
+                            </div>
+                            <div class="form-text" id="basic-addon4"><a href="#"
+                                    class="link-body-emphasis link-offset-2 link-opacity-75 link-underline-opacity-0 link-underline-opacity-100-hover me-3">Where
+                                    can I find my tag?</a></div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-md-7 my-4 my-md-0 d-flex justify-content-center align-items-center user-select-none">
+                        <div class="text-center text-uppercase text-body-tertiary">
+                            <h1 class="m-0">Your profile</h1>
+                            <h5 class="m-0">Will be displayed here</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
