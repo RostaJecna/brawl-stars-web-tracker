@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="/assets/css/fonts.css">
-    <link rel="stylesheet" href="/assets/css/backgrounds.css">
+    <link rel="stylesheet" href="/assets/css/game-event.css">
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="vendor/bootstrap/extensions/my-extension.css">
+    <script src="/vendor/jquery/jquery-3.7.0.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brawl Tracker</title>
 </head>
@@ -84,7 +85,17 @@
                 </div>
             </div>
         </section>
+        <section class="container my-5">
+            <h1 class="text-center text-capitalize display-2 font-nougat mb-3">Daily events</h1>
+            <div id="game-events-container" class="bg-light mx-2 pt-3 rounded-3 row">
+                <div id="game-events-spinner" class="spinner-border text-warning mx-auto" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </section>
     </main>
+    <script src="/assets/js/index/game-event.js" type="module"></script>
+    <script src="/assets/js/index/index.js" type="module"></script>
 </body>
 
 </html>
