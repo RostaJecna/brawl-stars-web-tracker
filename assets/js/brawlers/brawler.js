@@ -1,9 +1,9 @@
 export default class Brawler {
-    constructor(name, iconImageUrl, emojiImageUrl, brawlerClass, brawlerRarity, description) {
+    constructor(name, iconImageUrl, emojiImageUrl, className, brawlerRarity, description) {
         this.name = name;
         this.iconImageUrl = iconImageUrl;
         this.emojiImageUrl = emojiImageUrl;
-        this.brawlerClass = brawlerClass;
+        this.className = className;
         this.brawlerRarity = brawlerRarity;
         this.description = description;
     }
@@ -18,13 +18,8 @@ export default class Brawler {
         const name = brawler.name;
         const iconImageUrl = brawler.imageUrl;
         const emojiImageUrl = brawler.imageUrl3;
+        const className = brawler.class.name;
         const description = brawler.description;
-
-        // ? Extract the necessary properties for the BrawlerClass object
-        const BrawlerClass = {
-            id: brawler.class.id,
-            name: brawler.class.name
-        }
 
         // ? Extract the necessary properties for the BrawlerRarity object
         const BrawlerRarity = {
@@ -34,6 +29,6 @@ export default class Brawler {
         }
 
         // Create a new Brawler object with the extracted properties
-        return new Brawler(name, iconImageUrl, emojiImageUrl, BrawlerClass, BrawlerRarity, description);
+        return new Brawler(name, iconImageUrl, emojiImageUrl, className, BrawlerRarity, description);
     }
 }
