@@ -26,7 +26,7 @@ export default class Brawler {
             id: brawler.rarity.id,
             name: brawler.rarity.name,
             color: brawler.rarity.color
-        }
+        };
 
         // Create a new Brawler object with the extracted properties
         return new Brawler(name, iconImageUrl, emojiImageUrl, className, BrawlerRarity, description);
