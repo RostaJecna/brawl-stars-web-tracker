@@ -88,7 +88,7 @@ function displayError(xhr) {
     const errorDiv = document.createElement('div');
 
     errorDiv.innerHTML = `
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger" role="alert" data-bs-theme="light">
     Apologies for the inconvenience. We're currently unable to load the data. Please try
         <span><a href="/" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">again</a></span> in a few minutes.
         <hr>
