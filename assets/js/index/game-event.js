@@ -7,7 +7,7 @@ export default class GameEvent {
 
     /**
      * * Calculate the remaining time until the end of the game event.
-     * ? Returns the remaining time in the format "Xh Ymin".
+     * @returns The remaining time in the format "Xh Ymin".
      */
     getRemainingTime() {
         const end = new Date(this.endTime);
@@ -39,14 +39,14 @@ export default class GameEvent {
         const GameMap = {
             name: event.map.name,
             bgImageUrl: event.map.environment.imageUrl
-        }
+        };
 
         // ? Extract the necessary properties for the GameMode object
         const GameMode = {
             name: event.map.gameMode.name,
             bgColor: event.map.gameMode.bgColor,
             iconImageUrl: event.map.gameMode.imageUrl
-        }
+        };
 
         // Create a new GameEvent object with the extracted properties
         return new GameEvent(endTime, GameMap, GameMode);
