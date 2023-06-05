@@ -1,5 +1,5 @@
 import Brawler from "./brawler.js";
-import { displayArray, displayError } from "../display-manager.js";
+import { displayArray, displayError } from "../../utils/display-manager.js";
 
 const brawlersSpinner = $('#brawlers-spinner');
 const brawlersContainer = $('#brawlers-container');

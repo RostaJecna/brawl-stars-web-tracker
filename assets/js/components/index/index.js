@@ -1,5 +1,5 @@
 import GameEvent from "./game-event.js";
-import { displayArray, displayError } from "../display-manager.js";
+import { displayArray, displayError } from "../../utils/display-manager.js";
 
 const gameEventsSpinner = $('#game-events-spinner');
 const gameEventsContainer = $('#game-events-container');
