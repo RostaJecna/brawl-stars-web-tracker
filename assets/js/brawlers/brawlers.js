@@ -17,6 +17,7 @@ $.ajax({
         displayBrawlers(brawlers);
     },
     error: function (xhr) {
+        displayError(xhr);
     }
 });
 
@@ -72,4 +73,32 @@ function displayBrawlers(brawlers) {
     });
 
     brawlersContainer.appendChild(fragment);
+}
+
+/**
+ * * The `displayError` function is responsible for displaying an error message when there is a problem loading data.
+ *
+ * @param {XMLHttpRequest} xhr - The XMLHttpRequest object containing the error information.
+ * @returns {void}
+ */
+function displayError(xhr) {
+    const brawlersSpinner = document.querySelector('#brawlers-spinner');
+    if (brawlersSpinner) {
+        brawlersSpinner.remove();
+    }
+
+    const brawlersContainer = document.querySelector('#brawlers-container');
+    const errorDiv = document.createElement('div');
+
+    errorDiv.innerHTML = `
+    <div class="alert alert-danger" role="alert" data-bs-theme="light">
+    Apologies for the inconvenience. We're currently unable to load the data. Please try
+        <span><a href="/pages/brawlers.html" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">again</a></span> in a few minutes.
+        <hr>
+        Status Code: ${xhr.status}.
+        Message: ${xhr.statusText}.
+    </div>
+    `;
+
+    brawlersContainer.appendChild(errorDiv);
 }
