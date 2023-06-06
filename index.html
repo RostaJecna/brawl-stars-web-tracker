@@ -117,7 +117,8 @@
     </footer>
 
     <!-- Login Modal -->
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal fade user-select-none" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -127,16 +128,16 @@
                 <div class="modal-body">
                     <form id="loginForm">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
+                            <label for="login-email" class="form-label">Email</label>
                             <input type="email"
                                 class="form-control focus-ring focus-ring-warning focus-border-warning font-nanum-gothic"
-                                id="email" name="email" placeholder="Enter your email" required>
+                                id="login-email" name="login-email" placeholder="Enter your email" required>
                         </div>
                         <div class="mb-4">
-                            <label for="password" class="form-label">Password</label>
+                            <label for="login-password" class="form-label">Password</label>
                             <input type="password"
                                 class="form-control focus-ring focus-ring-warning focus-border-warning font-nanum-gothic"
-                                id="password" name="password" placeholder="Enter your password" required>
+                                id="login-password" name="login-password" placeholder="Enter your password" required>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -149,7 +150,8 @@
     </div>
 
     <!-- Signup Modal -->
-    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal fade user-select-none" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -159,24 +161,25 @@
                 <div class="modal-body">
                     <form id="signupForm">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
+                            <label for="signup-email" class="form-label">Email</label>
                             <input type="email"
                                 class="form-control focus-ring focus-ring-warning focus-border-warning font-nanum-gothic"
-                                id="email" name="email" placeholder="Enter your email" required>
+                                id="signup-email" name="signup-email" placeholder="Enter your email" required>
                         </div>
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
+                            <label for="signup-password" class="form-label">Password</label>
                             <input type="password"
                                 class="form-control focus-ring focus-ring-warning focus-border-warning font-nanum-gothic"
-                                id="password" name="password" placeholder="Enter your password" required>
+                                id="signup-password" name="signup-password" placeholder="Enter your password" required>
                         </div>
                         <div class="mb-2">
-                            <label for="player-tag" class="form-label">Player Tag</label>
+                            <label for="signup-player-tag" class="form-label">Player Tag</label>
                             <div class="input-group">
-                                <span class="input-group-text text-bg-warning" id="basic-addon3">#</span>
-                                <input ttype="text"
+                                <span class="input-group-text text-bg-warning">#</span>
+                                <input type="text"
                                     class="form-control focus-ring focus-ring-warning focus-border-warning font-nanum-gothic"
-                                    id="player-tag" name="player-tag" placeholder="Enter your player tag" required>
+                                    id="signup-player-tag" name="signup-player-tag" placeholder="Enter your player tag"
+                                    required>
                             </div>
                         </div>
                         <div class="form-text mb-2">
