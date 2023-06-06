@@ -16,7 +16,7 @@
 
 <body class="font-lilita-one text-bg-dark" data-bs-theme="dark">
 
-    <?php include_once 'pages/core/header.php'; ?>
+    <?php include_once 'core/header.php'; ?>
 
     <main class="bg-white">
         <section class="bg-dark py-5 shadow-lg">
@@ -62,7 +62,7 @@
         </section>
     </main>
 
-    <?php include_once 'pages/core/footer.php'; ?>
+    <?php include_once 'core/footer.php'; ?>
 
     <script src="/assets/js/utils/display-manager.js" type="module"></script>
     <script src="/assets/js/components/index/game-event.js" type="module"></script>
