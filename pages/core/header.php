@@ -12,21 +12,36 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <?php
-                    $hrefs = [
-                        '/' => 'Home',
-                        '/brawlers' => 'Brawlers'
+                    $routes = [
+                        '/' => [
+                            'label' => 'Home',
+                            'path' => '/pages/index.php'
+                        ],
+                        '/brawlers' => [
+                            'label' => 'Brawlers',
+                            'path' => '/pages/brawlers.php'
+                        ]
                     ];
 
-                    $current_page = $_SESSION['CURRENT_PAGE'];
+                    $current_page = $_SESSION['CURRENT_PAGE'] ?? null;
 
-                    foreach ($hrefs as $key => $value) {
+                    if (!isset($current_page)) {
+                        foreach ($routes as $key => $route) {
+                            if ($_SERVER['REQUEST_URI'] === $route['path']) {
+                                $current_page = $key;
+                                break;
+                            }
+                        }
+                    }
+
+                    foreach ($routes as $key => $route) {
                         $class_li = ($key === $current_page) ? 'nav-link' : 'nav-item';
                         $class_a = ($key === $current_page) ? 'link-underline-warning link-offset-2 text-white' : 'nav-link';
                         $aria_current = ($key === $current_page) ? 'aria-current="page"' : '';
 
                         echo <<<HTML
                             <li class="$class_li">
-                                <a class="$class_a" $aria_current href="$key">$value</a>
+                                <a class="$class_a" $aria_current href="$key">{$route['label']}</a>
                             </li>
                         HTML;
                     } ?>
