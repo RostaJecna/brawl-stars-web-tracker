@@ -39,10 +39,11 @@
                         </li>
                     </ul>
                     <div class="d-flex">
-                        <a href="#"
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal"
                             class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover me-3 my-auto">Login
                         </a>
-                        <a class="btn btn-outline-warning action-button" role="button" href="#">Sign Up</a>
+                        <a class="btn btn-outline-warning action-button" role="button" href="#" data-bs-toggle="modal"
+                            data-bs-target="#signupModal">Sign Up</a>
                     </div>
                 </div>
             </div>
@@ -76,6 +77,85 @@
             </div>
         </div>
     </footer>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-nougat" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email"
+                                class="form-control focus-ring focus-ring-warning focus-border-warning font-nanum-gothic"
+                                id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password"
+                                class="form-control focus-ring focus-ring-warning focus-border-warning font-nanum-gothic"
+                                id="password" name="password" placeholder="Enter your password" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-warning">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-nougat" id="signupModalLabel">Sign Up</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="signupForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email"
+                                class="form-control focus-ring focus-ring-warning focus-border-warning font-nanum-gothic"
+                                id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password"
+                                class="form-control focus-ring focus-ring-warning focus-border-warning font-nanum-gothic"
+                                id="password" name="password" placeholder="Enter your password" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="player-tag" class="form-label">Player Tag</label>
+                            <div class="input-group">
+                                <span class="input-group-text text-bg-warning" id="basic-addon3">#</span>
+                                <input ttype="text"
+                                    class="form-control focus-ring focus-ring-warning focus-border-warning font-nanum-gothic"
+                                    id="player-tag" name="player-tag" placeholder="Enter your player tag" required>
+                            </div>
+                        </div>
+                        <div class="form-text mb-2">
+                            <a href="#"
+                                class="link-body-emphasis link-offset-2 link-opacity-75 link-underline-opacity-0 link-underline-opacity-100-hover me-3">Where
+                                can I find my tag?</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-warning">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="/assets/js/utils/display-manager.js" type="module"></script>
     <script src="/assets/js/components/brawlers/brawler.js" type="module"></script>
     <script src="/assets/js/components/brawlers/brawlers.js" type="module"></script>
