@@ -7,7 +7,11 @@ $parsedUrl = parse_url($uri);
 
 $routes = [
     '/' => 'pages/index.php',
-    '/brawlers' => 'pages/brawlers.php'
+    '/404' => 'pages/404.php',
+    '/brawlers' => 'pages/brawlers.php',
+    '/api-handler' => 'pages/utils/api-handler.php',
+    '/not-found' => 'pages/utils/not-found.php',
+    '/profile' => 'pages/profile.php'
 ];
 
 if ($parsedUrl && isset($parsedUrl['path'])) {
