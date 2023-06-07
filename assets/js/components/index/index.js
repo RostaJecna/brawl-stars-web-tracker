@@ -1,5 +1,5 @@
 import GameEvent from "./game-event.js";
-import { displayArray, displayError } from "../../utils/display-manager.js";
+import DisplayManager from "../../utils/display-manager.js";
 
 const gameEventsSpinner = $('#game-events-spinner');
 const gameEventsContainer = $('#game-events-container');
@@ -25,10 +25,24 @@ $.ajax({
         // * Create an array of GameEvent objects from the filtered events
         const gameEventsArray = filteredEvents.map(event => GameEvent.getFiltredEvent(event));
 
-        displayArray(gameEventsContainer, gameEventsArray, divEventsClasses, generateHtmlEvent);
+        // Save array string in local storage
+        localStorage.setItem('gameEvents', JSON.stringify(gameEventsArray));
+
+        DisplayManager.displayArray(gameEventsContainer, gameEventsArray, divEventsClasses, generateHtmlEvent);
     },
     error: (xhr) => {
-        displayError(gameEventsContainer, xhr);
+        const gameEventsJSON = localStorage.getItem('gameEvents');
+        if (gameEventsJSON === null) {
+            // Display an error message if gameEventsJSON (local storage) is null
+            DisplayManager.displayError(gameEventsContainer, xhr);
+        } else {
+            const localGameEvents = JSON.parse(gameEventsJSON);
+            const gameEventsArray = localGameEvents.map(localEvent => GameEvent.getFiltredFromStorage(localEvent));
+
+            DisplayManager.displayArray(gameEventsContainer, gameEventsArray, divEventsClasses, generateHtmlEvent);
+            // Display a warning message if there was an error but local storage data is available
+            DisplayManager.displayStorageWarning(gameEventsContainer, xhr);
+        }
     }
 });
 
