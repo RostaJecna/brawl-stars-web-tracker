@@ -34,10 +34,10 @@
                             <label for="player-tag-input" class="form-label">Try It Out</label>
                             <div class="input-group">
                                 <span class="input-group-text text-bg-warning" id="basic-addon3">#</span>
-                                <input type="text" class="form-control focus-ring focus-ring-warning focus-border-warning" id="player-tag-input" placeholder="Player Tag" aria-label="Player Tag" aria-describedby="basic-addon4" required>
-                                <button class="btn btn-outline-warning" type="submit" id="button-addon2">Get</button>
+                                <input type="text" class="form-control focus-ring focus-ring-warning focus-border-warning" maxlength="9" minlength="9" id="player-tag-input" placeholder="Player Tag" aria-label="Player Tag" pattern="^[a-zA-Z0-9]+$" required>
+                                <button class="btn btn-outline-warning" type="submit">Get</button>
                             </div>
-                            <div class="form-text" id="basic-addon4">
+                            <div class="form-text">
                                 <a href="#" class="link-body-emphasis link-offset-2 link-opacity-75 link-underline-opacity-0 link-underline-opacity-100-hover me-3">Where
                                     can I find my tag?</a>
                             </div>

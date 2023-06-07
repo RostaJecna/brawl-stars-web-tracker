@@ -110,7 +110,7 @@
                         <label for="signup-player-tag" class="form-label">Player Tag</label>
                         <div class="input-group">
                             <span class="input-group-text text-bg-warning">#</span>
-                            <input type="text" class="form-control focus-ring focus-ring-warning focus-border-warning font-nanum-gothic" id="signup-player-tag" name="signup-player-tag" placeholder="Enter your player tag" required>
+                            <input type="text" class="form-control focus-ring focus-ring-warning focus-border-warning font-nanum-gothic" maxlength="9" minlength="9" id="signup-player-tag" name="signup-player-tag" placeholder="Enter your player tag" pattern="^[a-zA-Z0-9]+$" required>
                         </div>
                     </div>
                     <div class="form-text mb-2">
