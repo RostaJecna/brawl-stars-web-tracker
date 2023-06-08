@@ -34,7 +34,7 @@
             </div>
         </section>
         <section class="container text-dark">
-            <h1 class="display-6 text-center">Where I can find my tag?</h1>
+            <h1 class="display-6 text-center">Where can I find my tag?</h1>
             <div class="d-flex justify-content-center">
                 <div class="mt-4 text-center" style="width: 500px">
                     <img class="rounded-3" style="width:100%; height:100%" height="280px" src="/assets/images/profile-example.jpg" alt="profile-example.jpg">
