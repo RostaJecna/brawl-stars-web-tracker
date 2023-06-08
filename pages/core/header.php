@@ -20,6 +20,10 @@
                         '/brawlers' => [
                             'label' => 'Brawlers',
                             'path' => '/pages/brawlers.php'
+                        ],
+                        '/about-web' => [
+                            'label' => 'About Web',
+                            'path' => '/pages/about-web.php'
                         ]
                     ];
 
@@ -46,9 +50,6 @@
                         HTML;
                     } ?>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">About Web</a>
-                    </li>
                 </ul>
                 <div class="d-flex">
 
@@ -69,7 +70,6 @@
                                 </a>
                                 <ul class="dropdown-menu text-small">
                                     <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                                    <li><a class="dropdown-item" href="#">Settings</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
