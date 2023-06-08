@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="/assets/css/fonts.css">
     <link rel="stylesheet" href="/assets/css/brawler.css">
+    <link rel="shortcut icon" href="/assets/images/logo.svg" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="/vendor/popper/popper.min.js"></script>

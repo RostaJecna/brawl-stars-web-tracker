@@ -14,7 +14,8 @@ $routes = [
     '/log-in-handler' => 'pages/utils/log-in-handler.php',
     '/sign-out-handler' => 'pages/utils/sign-out-handler.php',
     '/not-found' => 'pages/utils/not-found.php',
-    '/profile' => 'pages/profile.php'
+    '/profile' => 'pages/profile.php',
+    '/about-web' => 'pages/about-web.php'
 ];
 
 if ($parsedUrl && isset($parsedUrl['path'])) {

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="/assets/css/fonts.css">
     <link rel="stylesheet" href="/assets/css/game-event.css">
+    <link rel="shortcut icon" href="/assets/images/logo.svg" type="image/x-icon">
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="/vendor/popper/popper.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -60,10 +61,19 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-md-7 my-4 my-md-0 d-flex justify-content-center align-items-center user-select-none">
-                        <div class="text-center text-uppercase text-body-tertiary">
-                            <h1 class="m-0">Your profile</h1>
-                            <h5 class="m-0">Will be displayed here</h5>
+                    <div class="col-md-7 d-flex align-items-center user-select-none">
+                        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="/assets/images/backgrounds/bg-profile.png" class="d-block rounded-5 w-100" alt="bg-profile.png">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/images/backgrounds/bg-events.png" class="d-block rounded-5 w-100" alt="bg-events.png">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/assets/images/backgrounds/bg-brawlers.png" class="d-block rounded-5 w-100" alt="bg-brawlers.png">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
