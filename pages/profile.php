@@ -4,7 +4,11 @@ if (isset($_SESSION['player_data'])) {
     $player = $_SESSION['player_data'];
     unset($_SESSION['player_data']);
 } else if (isset($_SESSION['profile_id'])) {
-    $player = $_SESSION['profile_player_data'];
+    if (empty($_SESSION['profile_player_data']["reason"])) {
+        $player = $_SESSION['profile_player_data'];
+    } else {
+        header('Location: /not-found');
+    }
 } else {
     header('Location: /');
 }
@@ -81,38 +85,51 @@ if (isset($_SESSION['player_data'])) {
             <div class="d-flex flex-column text-dark p-4 shadow-lg rounded-5" style="width: 500px">
                 <h1 class="text-capitalize text-center">Personal records</h1>
                 <hr>
-                <h4 class="text-center">Please <span><a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">login</a></span> to get more info.</h4>
-                <!-- <div class="d-flex justify-content-between px-2">
-                    <div class="d-flex me-2">
-                        <img class="me-2" src="https://cdn-old.brawlify.com/icon/3v3.png" height="32px" alt="trophy.png">
-                        <h3>3 vs 3 Victories</h3>
-                    </div>
-                    <h3><?php echo $player['3vs3Victories']; ?></h3>
-                </div>
-                <hr>
-                <div class="d-flex justify-content-between px-2">
-                    <div class="d-flex me-2">
-                        <img class="me-2" src="https://cdn-old.brawlify.com/gamemode/Showdown.png" height="32px" alt="trophy.png">
-                        <h3>Solo Victories</h3>
-                    </div>
-                    <h3><?php echo $player['soloVictories']; ?></h3>
-                </div>
-                <hr>
-                <div class="d-flex justify-content-between px-2">
-                    <div class="d-flex me-2">
-                        <img class="me-2" src="https://cdn-old.brawlify.com/gamemode/Duo-Showdown.png" height="32px" alt="trophy.png">
-                        <h3>Duo Victories</h3>
-                    </div>
-                    <h3><?php echo $player['duoVictories']; ?></h3>
-                </div>
-                <hr>
-                <div class="d-flex justify-content-between px-2">
-                    <div class="d-flex me-2">
-                        <img class="me-2" src="https://cdn-old.brawlify.com/icon/Star-Points.png" height="32px" alt="trophy.png">
-                        <h3>Exp Points</h3>
-                    </div>
-                    <h3><?php echo $player['expPoints']; ?></h3>
-                </div> -->
+
+                <?php
+
+                if (!isset($_SESSION['profile_id'])) {
+                    echo '<h4 class="text-center">Please <span><a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">login</a></span> to get more info.</h4>';
+                } else {
+                    $stats = [
+                        [
+                            'imgSrc' => 'https://cdn-old.brawlify.com/icon/3v3.png',
+                            'title' => '3 vs 3 Victories',
+                            'value' => $player['3vs3Victories']
+                        ],
+                        [
+                            'imgSrc' => 'https://cdn-old.brawlify.com/gamemode/Showdown.png',
+                            'title' => 'Solo Victories',
+                            'value' => $player['soloVictories']
+                        ],
+                        [
+                            'imgSrc' => 'https://cdn-old.brawlify.com/gamemode/Duo-Showdown.png',
+                            'title' => 'Duo Victories',
+                            'value' => $player['duoVictories']
+                        ],
+                        [
+                            'imgSrc' => 'https://cdn-old.brawlify.com/icon/Star-Points.png',
+                            'title' => 'Exp Points',
+                            'value' => $player['expPoints']
+                        ]
+                    ];
+
+                    foreach ($stats as $stat) {
+                        echo '
+                            <div class="d-flex justify-content-between px-2">
+                                <div class="d-flex me-2">
+                                    <img class="me-2" src="' . $stat['imgSrc'] . '" height="32px" alt="trophy.png">
+                                    <h3>' . $stat['title'] . '</h3>
+                                </div>
+                                <h3>' . $stat['value'] . '</h3>
+                            </div>
+                            <hr>
+                        ';
+                    }
+                }
+
+                ?>
+
             </div>
         </section>
     </main>
