@@ -16,6 +16,11 @@ export default class GameEvent {
         // Calculate the remaining time by subtracting the current time from the end time
         const remainingTime = end - now;
 
+        // ? Check in case of loading from local storage
+        if (remainingTime <= 0) {
+            return "Time expired";
+        }
+
         // Calculate the number of hours by dividing the remaining time by the number of milliseconds in an hour
         const hours = Math.floor(remainingTime / (1000 * 60 * 60));
 
@@ -27,7 +32,7 @@ export default class GameEvent {
     }
 
     /**
-     * * Creates a filtered GameEvent object from the provided event data.
+     * * Creates a filtered GameEvent object from the provided event data from API.
      * @param {Object} event - The event object containing the necessary properties.
      * @returns {GameEvent} - The filtered GameEvent object.
      */
@@ -50,5 +55,17 @@ export default class GameEvent {
 
         // Create a new GameEvent object with the extracted properties
         return new GameEvent(endTime, GameMap, GameMode);
+    }
+
+    
+    /**
+     * * Creates a filtered GameEvent object from the provided event data from local storage.
+     * @param {Object} localEvent - The local event object containing the necessary properties.
+     * @returns {GameEvent} - The filtered GameEvent object.
+     */
+    static getFiltredFromStorage(localEvent) {
+        const GameMap = localEvent.gameMap;
+        const GameMode = localEvent.gameMode;
+        return new GameEvent(localEvent.endTime, GameMap, GameMode);
     }
 }

@@ -1,5 +1,5 @@
 import Brawler from "./brawler.js";
-import { displayArray, displayError } from "../../utils/display-manager.js";
+import DisplayManager from "../../utils/display-manager.js";
 
 const brawlersSpinner = $('#brawlers-spinner');
 const brawlersContainer = $('#brawlers-container');
@@ -22,10 +22,10 @@ $.ajax({
         // Sort the brawlers array from higher to lower rarity ID
         brawlers.sort((a, b) => b.brawlerRarity.id - a.brawlerRarity.id);
 
-        displayArray(brawlersContainer, brawlers, divCardsClasses, generateHtmlBrawler);
+        DisplayManager.displayArray(brawlersContainer, brawlers, divCardsClasses, generateHtmlBrawler);
     },
     error: function (xhr) {
-        displayError(brawlersContainer, xhr);
+        DisplayManager.displayError(brawlersContainer, xhr);
     }
 });
 
