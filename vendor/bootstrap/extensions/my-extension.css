@@ -1,0 +1,7 @@
+:root {
+    --warning-color: #ffc107;
+}
+
+.focus-border-warning:focus {
+    border-color: var(--warning-color);
+}
