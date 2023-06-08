@@ -47,4 +47,28 @@ class ApiRequest
 
         return $player;
     }
+
+    public static function isPlayerExisting($playerTag)
+    {
+        $requestUrl = self::$apiUrl . $playerTag;
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $requestUrl);
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Authorization: Bearer ' . self::$token,
+            'Content-Type: application/json'
+        ));
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+
+        curl_close($ch);
+
+        $data = json_decode($response, true);
+
+        return empty($data['reason']);
+    }
 }
