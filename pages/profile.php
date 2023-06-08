@@ -1,9 +1,14 @@
 <?php
-if (!isset($_SESSION['player_data'])) {
+
+if (isset($_SESSION['player_data'])) {
+    $player = $_SESSION['player_data'];
+    unset($_SESSION['player_data']);
+} else if (isset($_SESSION['profile_id'])) {
+    $player = $_SESSION['profile_player_data'];
+} else {
     header('Location: /');
 }
 
-$player = $_SESSION['player_data'];
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +20,7 @@ $player = $_SESSION['player_data'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/fonts.css">
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/vendor/popper/popper.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="vendor/bootstrap/extensions/my-extension.css">
     <title>Profile | <?php echo $player['name']; ?></title>
