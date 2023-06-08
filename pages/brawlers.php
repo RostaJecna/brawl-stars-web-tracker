@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/assets/css/brawler.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/vendor/popper/popper.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/vendor/bootstrap/extensions/my-extension.css">
     <script src="/vendor/jquery/jquery-3.7.0.min.js"></script>
