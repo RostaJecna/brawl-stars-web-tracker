@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/assets/css/fonts.css">
     <link rel="stylesheet" href="/assets/css/game-event.css">
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/vendor/popper/popper.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="vendor/bootstrap/extensions/my-extension.css">
     <script src="/vendor/jquery/jquery-3.7.0.min.js"></script>
@@ -22,6 +23,22 @@
         <section class="bg-dark py-5 shadow-lg">
             <div class="container">
                 <div class="row px-4">
+
+                    <?php
+
+                    if (isset($_SESSION['AUTHENTICATION_STATUS'])) {
+                        $status = $_SESSION['AUTHENTICATION_STATUS'];
+                        unset($_SESSION['AUTHENTICATION_STATUS']);
+
+                        echo <<<HTML
+                        <div class="alert alert-warning" role="alert" data-bs-theme="light">
+                                $status
+                        </div>
+                        HTML;
+                    }
+
+                    ?>
+
                     <div class="col-md-5">
                         <h1 class="font-nougat">
                             Track. Analyze. Improve.
