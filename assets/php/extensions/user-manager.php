@@ -7,6 +7,10 @@ class UserManager
 {
     public static function tryLogin($email, $password)
     {
+        if (!isset($_SESSION["WRONG_PASSWORDS_ATTEMPTS"]) || (isset($_SESSION["INVALID_FOR_EMAIL"]) && $_SESSION["INVALID_FOR_EMAIL"] !== $email)) {
+            $_SESSION["WRONG_PASSWORDS_ATTEMPTS"] = 0;
+        }
+
         $connection = DBC::getConnection();
         $statement = $connection->prepare("SELECT id, email, `password`, tag FROM `profile` WHERE email = ?");
         $statement->bind_param("s", $email);
@@ -17,9 +21,18 @@ class UserManager
             if (password_verify($password, $profile[2])) {
                 $_SESSION["profile_id"] = $profile[0];
                 $_SESSION["profile_player_data"] = ApiRequest::getPlayerData($profile[3]);
-                $_SESSION["profile_last_response"] = time();
                 header("Location: /");
                 return;
+            } else {
+                $_SESSION["INVALID_FOR_EMAIL"] = $profile[1];
+                $_SESSION["WRONG_PASSWORDS_ATTEMPTS"]++;
+
+                if ($_SESSION['WRONG_PASSWORDS_ATTEMPTS'] === 3) {
+                    $log_message = 'Three wrong password attempts for user: ' . $email . ', IPv4: ' . $_SERVER['REMOTE_ADDR'] . "\n";
+                    file_put_contents('error.log', $log_message, FILE_APPEND);
+                    unset($_SESSION['WRONG_PASSWORDS_ATTEMPTS']);
+                    unset($_SESSION["INVALID_FOR_EMAIL"]);
+                }
             }
         }
         $_SESSION["AUTHENTICATION_STATUS"] = "Invalid login.";
