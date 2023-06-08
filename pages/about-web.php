@@ -37,7 +37,7 @@
             <h1 class="display-6 text-center">Where I can find my tag?</h1>
             <div class="d-flex justify-content-center">
                 <div class="mt-4 text-center" style="width: 500px">
-                    <img class="rounded-3" height="280px" src="/assets/images/profile-example.jpg" alt="profile-example.jpg">
+                    <img class="rounded-3" style="width:100%; height:100%" height="280px" src="/assets/images/profile-example.jpg" alt="profile-example.jpg">
                     <h6 class="text-muted">(You can find your tag in your profile.)</h6>
                 </div>
             </div>
