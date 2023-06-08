@@ -51,9 +51,35 @@
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover me-3 my-auto">Login
-                    </a>
-                    <a class="btn btn-outline-warning action-button" role="button" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
+
+                    <?php
+
+                    if (isset($_SESSION['profile_id'])) {
+                        $profile_player = $_SESSION['profile_player_data'];
+
+                        echo '
+                            <div class="dropdown text-end">
+                                <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="https://cdn-old.brawlify.com/profile/' . $profile_player["iconId"] . '.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                                </a>
+                                <ul class="dropdown-menu text-small">
+                                    <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="/sign-out-handler">Sign out</a></li>
+                                </ul>
+                            </div>     
+                        ';
+                    } else {
+                        echo <<<HTML
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover me-3 my-auto">Login</a>
+                        <a class="btn btn-outline-warning action-button" role="button" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
+                        HTML;
+                    }
+
+                    ?>
                 </div>
             </div>
         </div>
@@ -69,7 +95,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="loginForm">
+                <form id="loginForm" method="POST" action="/log-in-handler">
                     <div class="mb-3">
                         <label for="login-email" class="form-label">Email</label>
                         <input type="email" class="form-control focus-ring focus-ring-warning focus-border-warning font-nanum-gothic" id="login-email" name="login-email" placeholder="Enter your email" required>
@@ -97,7 +123,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="signupForm">
+                <form id="signupForm" method="POST" action="/sign-up-handler">
                     <div class="mb-3">
                         <label for="signup-email" class="form-label">Email</label>
                         <input type="email" class="form-control focus-ring focus-ring-warning focus-border-warning font-nanum-gothic" id="signup-email" name="signup-email" placeholder="Enter your email" required>
