@@ -145,7 +145,7 @@
                         </div>
                     </div>
                     <div class="form-text mb-2">
-                        <a href="#" class="link-body-emphasis link-offset-2 link-opacity-75 link-underline-opacity-0 link-underline-opacity-100-hover me-3">Where
+                        <a href="/about-web" class="link-body-emphasis link-offset-2 link-opacity-75 link-underline-opacity-0 link-underline-opacity-100-hover me-3">Where
                             can I find my tag?</a>
                     </div>
                     <div class="modal-footer">
