@@ -53,6 +53,7 @@ class UserManager
 
     public static function trySignup($email, $password, $player_tag)
     {
+        // ! Remove this condition if you dont have access to token
         if (!ApiRequest::isPlayerExisting($player_tag)) {
             $_SESSION["AUTHENTICATION_STATUS"] = "Failed to get the player's data. Check that his tag is written correctly.";
             header("Location: /");
