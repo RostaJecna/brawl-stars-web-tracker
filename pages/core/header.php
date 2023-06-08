@@ -55,12 +55,17 @@
                     <?php
 
                     if (isset($_SESSION['profile_id'])) {
-                        $profile_player = $_SESSION['profile_player_data'];
+                        if (empty($_SESSION['profile_player_data']["reason"])) {
+                            $profile_player = $_SESSION['profile_player_data'];
+                            $image = '<img src="https://cdn-old.brawlify.com/profile/' . $profile_player["iconId"] . '.png" alt="mdo" width="32" height="32" class="rounded-circle">';
+                        } else {
+                            $image = '<img src="/assets/images/icons/error-profile.webp" alt="mdo" width="32" height="32" class="rounded-circle">';
+                        }
 
                         echo '
                             <div class="dropdown text-end">
                                 <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="https://cdn-old.brawlify.com/profile/' . $profile_player["iconId"] . '.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                                    ' . $image . '
                                 </a>
                                 <ul class="dropdown-menu text-small">
                                     <li><a class="dropdown-item" href="/profile">Profile</a></li>
